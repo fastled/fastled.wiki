@@ -16,7 +16,7 @@ FastLED is a large, complex library.  It is closer to a framework than a simple 
   * The version of FastLED you are using
   * The LED chipset you are using
   * What hardware you are building for
-* Providing a link to your code will get some of the quickest help, as we don't have to guess at how you're trying to do what you're doing.  Please upload your code [gist](http://gist.github.com) so we can read it (code in G+ posts gets unreadable very quickly).
+* Providing a link to your code will get some of the quickest help, as we don't have to guess at how you're trying to do what you're doing.  Please upload your code [gist](http://gist.github.com) so we can read it (code in G+ posts gets unreadable very quickly).  Also please update your entire sketch.  You will often be wrong about where you think the problem is in your code.
 * [More on asking good questions](http://stackoverflow.com/help/how-to-ask) and [making examples](http://stackoverflow.com/help/mcve)
 
 #### 1. I'm losing serial data when I call FastLED.show(), why?
