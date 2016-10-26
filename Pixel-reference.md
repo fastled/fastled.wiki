@@ -256,7 +256,7 @@ All of the math operations defined on the CRGB colors are automatically protecte
   leds[i] += CRGB( 20, 0, 0);
 
   // Add a constant amount of brightness to all three (RGB) channels.
-  leds[i] += 20;
+  leds[i].addToRGB(20);
 
   // Add a constant "1" to the brightness of all three (RGB) channels.
   leds[i]++;
@@ -266,7 +266,7 @@ All of the math operations defined on the CRGB colors are automatically protecte
   leds[i] -= CRGB( 20, 0, 0);
 
   // Subtract a contsant amount of brightness from all three (RGB) channels.
-  leds[i] -= 20;
+  leds[i].subtractFromRGB(20);
 
   // Subtract a constant "1" from the brightness of all three (RGB) channels.
   leds[i]--;
