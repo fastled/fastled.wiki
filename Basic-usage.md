@@ -48,14 +48,8 @@ If you are specifying your own pins, you have to specify a clock and a data pin:
     }
 ```
 
-Finally, sometimes you may want to change the data rate that you are running your leds at.  In this case, you'll also need to specify the RGB ordering:
+Finally, sometimes you may want to change the data rate that you are running your leds at.  In this case, you'll also need to specify the RGB ordering and the data and clock pins:
 
-```
-    void setup() { 
-        FastLED.addLeds<APA102, RGB, DATA_RATE_MHZ(12)>(leds, NUM_LEDS);
-    }
-```
-or
 ```
     void setup() { 
         FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, RGB, DATA_RATE_MHZ(12)>(leds, NUM_LEDS);
