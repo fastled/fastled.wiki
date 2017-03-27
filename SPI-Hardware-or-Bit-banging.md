@@ -55,9 +55,9 @@ On most devices, the SPI hardware wants four pins - data in, data out, clock, an
 * UART in SPI mode on AVR based devices: The RX pin may or may not be available (needs further testing).  Note that if you use the UART in SPI mode for leds, you will not be able to use the UART as a UART for other purposes.  Note that using Serial for printing uses the UART on the Atmega328p.
 * Hardware SPI on the arduino DUE: The MISO pin will be unavailable for use
 
-### Getting four hardware SPI lines for the APA102 out of the Teensy 3.0/3.1 ###
+### Getting four hardware SPI lines for the APA102 out of the Teensy 3.0/3.1/3.2 ###
 
-It is possible to get four hardware SPI outputs on the teensy 3.0/3.1, if you are driving APA102 (note: this hack won't work with most other SPI style led chipsets - though it might with with LPD8806).  You can setup the lines like so:
+It is possible to get four hardware SPI outputs on the teensy 3.0/3.1/3.2, if you are driving APA102 (note: this hack won't work with most other SPI style led chipsets - though it might with with LPD8806).  You can setup the lines like so:
 
 ```
 CRGB leds[4][NUM_LEDS];
