@@ -70,39 +70,42 @@ Now, what we do is we read serial data until we see those four bytes in a row, t
 ```
 const uint8_t header[4] = { 0xDE, 0xAD, 0xBE, 0xEF };
 
-void loop() { 
+void loop() {
   // we're going to read led data directly from serial, after we get our header
-  uint8_t b = Serial.read();
-  while(true) { 
+  while(true) {
+    while(Serial.available() == 0){} // wait for new serial data
+    uint8_t b = Serial.read();
     bool looksLikeHeader = false;
-    if(b == header[0]) { 
+    if(b == header[0]) {
       looksLikeHeader = true;
-      for(int = 1; looksLikeHeader && (i < sizeof(header)); i++) { 
-        b = Serial.read();  
-        if(b != header[i]) { 
-          // whoops, not a match, this no longer looks like a header.  
+      for(int i = 1; looksLikeHeader && (i < sizeof(header)); i++) {
+        while(Serial.available() == 0){} // wait for new serial data
+        b = Serial.read();
+        if(b != header[i]) {
+          // whoops, not a match, this no longer looks like a header.
           looksLikeHeader = false;
         }
       }
     }
 
-    if(looksLikeHeader) { 
+    if(looksLikeHeader) {
       // hey, we read all the header bytes!  Yay!  Now read the frame data
       int bytesRead = 0;
-      while(bytesRead < (NUM_LEDS *3)) { 
-        bytesRead += Serial.readBytes(((uint8_t*)leds) + bytesRead, (NUM_LEDS*3)-bytesRead);        
+      while(bytesRead < (NUM_LEDS *3)) {
+        bytesRead += Serial.readBytes(((uint8_t*)leds) + bytesRead, (NUM_LEDS*3)-bytesRead);
       }
+      // all bytes are read into led buffer. Now we can break out of while loop
+      break;
     }
   }
 
-  // now show the led data 
-  FastLED.show(); 
+  // now show the led data
+  FastLED.show();
 
   // finally, flush out any data in the serial buffer, as it may have been interrupted oddly by writing out led data:
-  while(Serial.available() > 0) { Serial.read(); } 
+  while(Serial.available() > 0) { Serial.read(); }
+
 }
-
 ```
-
 
 
