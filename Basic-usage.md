@@ -30,7 +30,7 @@ This sets up an array that we can manipulate to set/clear led data.  Now, let's 
    }
 ```
 
-This tells the library that there's a strand of NEOPIXEL's on pin 6 (remember, the value that DATA_PIN was set to), and those leds will use the led array ```leds```, and there are NUM_PIXELS (aka 60) of them.
+This tells the library that there's a strand of NEOPIXEL's on pin 6 (remember, the value that DATA_PIN was set to), and those leds will use the led array ```leds```, and there are NUM_LEDS (aka 60) of them.
 
 For four wire chipsets you have a couple of options.  If you are using the hardware SPI pins for the device that you're building for, then you don't even have to specify the pins:
 
