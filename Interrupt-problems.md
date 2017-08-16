@@ -108,4 +108,7 @@ void loop() {
 }
 ```
 
+_What's known to work and where?_
+
+* Someone filed #435 to let us know that IRRemote works on the teensy 3.x.
 
