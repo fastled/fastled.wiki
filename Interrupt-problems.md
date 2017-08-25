@@ -36,6 +36,8 @@ before you `#include <FastLED.h>`.  Sometimes, especially on the esp8266, you mi
 
 before you `#include <FastLED.h>`
 
+Another possibility is to split your leds into multiple shorter strips of leds, which would allow you to have even shorter periods of time with interrupts disabled (and/or not having to worry as much about frame writing being interrupted by long interrupts if you have them enabled)
+
 _And if I'm stuck with WS2812's and AVR?_
 
 If you are stuck with the hardware, all is not lost, at least not for reading in serial data.  (Note: If the lack of serviceable interrupts is causing problems for servos, you are out of luck - make one of the hardware switches mentioned above, or use a dual-controller setup where one avr talks to servos, and the other avr talks to the leds).
