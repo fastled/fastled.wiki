@@ -20,6 +20,22 @@ In an ideal world, you would move to a 4-wire led chipset, like the APA102 or LP
 
 In a less than ideal world, you could move to the teensy 3.x or the arduino due.  These are ARM based systems that have far more clock cycles per second available to them.  On these platforms, FastLED will briefly re-enable interrupts between each pixel, to allow handlers to run.  As long as those interrupt handlers don't take more than 5µs to run, everything will be happy.  As long as your interrupt handlers don't need to run more frequently than once every 30µs, that is.
 
+_What if my frames are getting cut short, because interrupts are still running too long - or i'm getting other weird behavior?_ 
+
+Well, then you have a choice - you can either fully disable interrupts while writing out led data by putting the line:
+
+```
+#define FASTLED_ALLOW_INTERRUPTS 0
+```
+
+before you `#include <FastLED.h>`.  Sometimes, especially on the esp8266, you might have better luck by just tweaking the re-try attempt code with:
+
+```
+#define FASTLED_INTERRUPT_RETRY_COUNT 1
+```
+
+before you `#include <FastLED.h>`
+
 _And if I'm stuck with WS2812's and AVR?_
 
 If you are stuck with the hardware, all is not lost, at least not for reading in serial data.  (Note: If the lack of serviceable interrupts is causing problems for servos, you are out of luck - make one of the hardware switches mentioned above, or use a dual-controller setup where one avr talks to servos, and the other avr talks to the leds).
@@ -111,4 +127,3 @@ void loop() {
 _What's known to work and where?_
 
 * Someone filed #435 to let us know that IRRemote works on the teensy 3.x.
-
