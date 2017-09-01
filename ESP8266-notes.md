@@ -6,7 +6,7 @@ Use arduino board definitions from http://arduino.esp8266.com/stable/package_esp
 
 There appear to be two major types of pin layouts for ESP8266 boards.  There's a raw layout, where pin 0 is GPIO0, pin 1 is GPIO1, etc... up to pin 16 being GPIO16.  Then there's the NodeMCU layout where pin 0 is GPIO 16, pin 1 is GPIO 5, etc... 
 
-The library will attempted to, based on board definitions, guess the right layout to use.  If it isn't, or if you want to force using a pin to gpio mapping, you can use one of:
+The library will attempt to, based on board definitions, guess the right layout to use.  If it isn't, or if you want to force using a pin to gpio mapping, you can use one of:
 
 ```
 #define FASTLED_ESP8266_RAW_PIN_ORDER
