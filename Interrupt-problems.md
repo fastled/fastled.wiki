@@ -2,7 +2,7 @@
 
 _(Or, why do I lose (serial|IR|servo) data?)_
 
-If you are using a 3-wire led chipset, (aka Neopixels, WS2812, TM1809), you may have run into some problems when trying to pair it with reading serial data, or using i2c, or other libraries.  
+If you are using a 3-wire led chipset, (aka Neopixels, WS2812, TM1809), you may have run into some problems when trying to pair it with reading serial data, wifi (for example, on an esp8266), or using i2c, or other libraries.  
 
 The problem is, in a nutshell, interrupts.
 
