@@ -12,7 +12,7 @@ You can also adjust the clock speed, eg slowing it down if needed:
 FastLED.addLeds<APA102,7,11,RGB,DATA_RATE_MHZ(10)>(leds,NUM_LEDS);
 ```
 
-If the data pin and clock pin that you give FastLED happened to be pins that have hardware SPI available for them, the library will automatically use the hardware SPI system.  If, for some reason, you don't want it to use the hardware SPI system, you can force software spi by putting the following at the top of your code:
+If the data pin and clock pin that you give FastLED happened to be pins that have hardware SPI available for them, the library will automatically use the hardware SPI system.  Note that under some compiler versions (possibly all, at this point), if you want to set the data rate you have to explicitly specify the clock and data pins.  If, for some reason, you don't want it to use the hardware SPI system, you can force software spi by putting the following at the top of your code:
 
 ```
 #define FASTLED_FORCE_SOFTWARE_SPI
