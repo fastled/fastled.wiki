@@ -6,6 +6,7 @@ Often when an LED strip is acting odd, or randomly, there's a power problem.  He
   * See if your animation works properly at a very low setBrightness level (e.g., "32", which is 1/8th brightness), but then goes nuts at higher brightnesses.  If so: you're out of power.
   * See if your animation works properly on a very small number of LEDs, but then starts going nuts when you step up to a larger number. If so, you're out of power (or you have an out-of-RAM problem).
   * If your setup is USB-powered and having trouble, try powering your LED strips from an external (5v) power supply.  Make sure to connect the Ground from the external power supply to the USB-based Ground.  If your animation flickers and goes nuts when exclusively USB powered, but works fine with an external power supply, you were out of power.
+  * To be explicit, if you are using multiple power supplies, make sure that all the grounds are connected together
 
 # Tips
 Some of these are just good engineering.  Some are just plain voodoo. Use whichever ones that work for you.  
