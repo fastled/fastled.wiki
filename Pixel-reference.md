@@ -70,7 +70,7 @@ Some performance-minded programmers may be concerned that using the 'high level'
 
 Here are the other high-level ways to set a CRGB color in one step:
 ```
-  // Example 3: set color via 'hex color code' (0xRRGBB)
+  // Example 3: set color via 'hex color code' (0xRRGGBB)
   leds[i] = 0xFF007F;
 
   // Example 4: set color via any named HTML web color
