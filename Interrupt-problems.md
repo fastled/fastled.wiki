@@ -40,7 +40,7 @@ Another possibility is to split your leds into multiple shorter strips of leds, 
 
 _And if I'm stuck with WS2812's and AVR?_
 
-If you are stuck with the hardware, all is not lost, at least not for reading in serial data.  (Note: If the lack of serviceable interrupts is causing problems for servos, you are out of luck - make one of the hardware switches mentioned above, or use a dual-controller setup where one avr talks to servos, and the other avr talks to the leds).
+If you are stuck with the hardware, all is not lost, at least not for reading in serial data.  (Note: If the lack of serviceable interrupts is causing problems for servos, you are out of luck - make one of the hardware switches mentioned above, or use a dual-controller setup where one avr talks to servos, and the other avr talks to the leds - also some folks have had luck using this to drive their servos - https://learn.adafruit.com/neopixels-and-servos/the-ticoservo-library).
 
 The trick is to be a bit more careful/thoughtful in how you're receiving your serial data.
 
