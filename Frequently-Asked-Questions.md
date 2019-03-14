@@ -5,7 +5,7 @@ FastLED is a large, complex library.  It is closer to a framework than a simple 
 * [This wiki](http://fastled.io/wiki) - read through the pages on the sidebar here, there's a lot of information in there!
 * [API Documentation](http://fastled.io/docs/3.1/index.html) - doxygen generated API documentation for the library.  This is more reference than how-to, and is continually being updated/expanded
 * [The examples](https://github.com/FastLED/FastLED/tree/master/examples) - FastLED has many examples to show off how to do things in the library.  These are also continually expanding.
-* [The G+ Group](http://fastled.io/+) - FastLED has a large community of active users, many of whom are quite helpful.  The community is open to people of all levels, and we've helped with everything from basics of programming to hardware design, as well as using FastLED.  Google recently broke searching in communities, but if you want to search the FastLED community, [start here](https://plus.google.com/s/FastLED/top), and add what you want to search for to the search bar at top.
+* [The Reddit Group](http://fastled.io/r) - FastLED has a large community of active users, many of whom are quite helpful.  The community is open to people of all levels, and we've helped with everything from basics of programming to hardware design, as well as using FastLED.  Feel free to go to the community and do a quick search around to see if other folks have had your problem.
 * [The FastLED chatroom](http://fastled.io/chat) - the chat room is a place where some random conversation about FastLED occurs.  
 
 #### 0a. Guidelines for asking for help on the G+ group
