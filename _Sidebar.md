@@ -13,6 +13,7 @@
   * [[Platform limitations]]
   * [[Interrupt problems]]
   * [[ESP8266 notes]]
+  * [[Parallel-Output]]
 * References
   * [[FastLED Design]]
   * [[FastLED Color Correction]]
@@ -25,6 +26,5 @@
 * [[API Reference]]
 * [[Chipset Reference]]
 * FastLED3.1 new features
-  * [[Parallel-Output]]
 * Releases
   * [[FastLED-3.0 announcement]] - [3.0 release page](https://github.com/FastLED/FastLED/releases/tag/v3.0.0)
