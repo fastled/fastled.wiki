@@ -51,7 +51,7 @@ void setup() {
 }
 ```
 
-and you have parallel output!
+and you have parallel output!  Also note that on the Teensy4 - you specify which clockless chipset you want to use (no more being limited to which chipsets I've defined CHIPSET_PORTX for...) - if this mechanism seems to continue to work well, I may make it available on the other platforms as well, but for now I didn't want to make changes outside of the teensy4.
 
 ## Making OctoWS2811 faster with FastLED
 
