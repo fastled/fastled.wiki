@@ -34,7 +34,7 @@ The new Teensy 4 also supports parallel output, but it's done slightly different
 * Second: 10,12,11,13,6,9,32,8,7
 * Third: 37, 36, 35, 34, 39, 38, 28, 31, 30
 
-Note that any pin above 21 is a pad on the back of the board.  This is the ordering of pins for each grouping.  Now, when calling add LEDs, you can pick which pin you want to start with in each group, and how many lanes.  For example, if you want 16 way output, you would use Pin 1 (and the rest of the pins in that first group) (with 4 of the strips having to connect to the backside of the panel).  If you only want a few channels of output, say 6 - and you don't want to use pads on the back, then you can select pin 19 as your initial pin (from that first group), and set the number of channels to 8 which will use pins 19,18,14,15,17,16.  
+Note that any pin above 21 is a pad on the back of the board.  This is the ordering of pins for each grouping.  Now, when calling add LEDs, you can pick which pin you want to start with in each group, and how many lanes.  For example, if you want 16 way output, you would use Pin 1 (and the rest of the pins in that first group) (with 4 of the strips having to connect to the backside of the panel).  If you only want a few channels of output, say 6 - and you don't want to use pads on the back, then you can select pin 19 as your initial pin (from that first group), and set the number of channels to 6 which will use pins 19,18,14,15,17,16.  
 
 Again, for the Teensy 4 - you select the first pin that you want for output, and then the number of pins after that in the list from above.  
 
