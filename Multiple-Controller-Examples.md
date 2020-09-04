@@ -96,7 +96,7 @@ void loop() {
     // clear our current dot before we move on
     redLeds[i] = CRGB::Black;
     greenLeds[i] = CRGB::Black;
-    blueLeds[i] = CRGB::Blue;
+    blueLeds[i] = CRGB::Black;
     delay(100);
   }
 }
@@ -175,7 +175,7 @@ void setup() {
 }
 ```
 
-Now, take a look at the loop method.  We're still moving a dot down each strip, one strpi at a time - but there's only one loop, going over all the leds:
+Now, take a look at the loop method.  We're still moving a dot down each strip, one strip at a time - but there's only one loop, going over all the leds:
 
 ```C++
 void loop() {
