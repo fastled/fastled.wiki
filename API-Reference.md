@@ -1,1 +1,1 @@
-Here's a preliminary link to doxygen generated documentation for the library: http://fastled.io/docs/3.1/
+Here's a preliminary link to doxygen generated documentation for the library: http://fastled.io/docs
