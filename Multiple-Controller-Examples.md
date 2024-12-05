@@ -1,6 +1,10 @@
 Using Multiple Controllers
 ==========================
 
+*update*
+
+*We had to break showLeds() on the individual controller strips because we are making FastLED highly parallel. Unfortunately the 3.8.X contract was that showLeds() would complete the entire draw before it returned. This made sense when everything was software bit banged out via the CPU circa 2012. That's all changed now starting with 3.9.X series, the alpha version of the 4.0 release. The higher end chips feature multiple independent hardware bit banging devices backed by a DMA controller and internal high priority interrupts. What this means is that `CLEDController::showLeds()` has been transformed from "draw this right now" to "acquire the resources and prepare for an impending async draw command" we recommend that you use `FastLED.show()` instead of these internal functions.*
+
 One question that we often get is how to use multiple output strips at once with the library.  There's a variety of reasons why someone might want to have multiple strips coming off of their arduino (or other controller):
 
 * Flexibility - perhaps you have an led design where strips are fanning out like the arms of a starfish, your wiring would be much simpler if you could have one controller in the middle driving all the LEDs
