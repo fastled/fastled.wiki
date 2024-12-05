@@ -213,15 +213,15 @@ void setup() {
 void loop() { 
   // draw led data for the first strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Red);
-  controllers[0]->showLeds(gBrightness);
+  controllers[0]->showLedsInternal(gBrightness);
 
   // draw led data for the second strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Green);
-  controllers[1]->showLeds(gBrightness);
+  controllers[1]->showLedsInternal(gBrightness);
 
   // draw led data for the third strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Blue);
-  controllers[2]->showLeds(gBrightness);
+  controllers[2]->showLedsInternal(gBrightness);
 
   // draw led data for the first strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::White);
@@ -252,18 +252,18 @@ void setup() {
 void loop() { 
   // draw led data for the first strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Red);
-  FastLED[0].showLeds(gBrightness);
+  FastLED[0].showLedsInternal(gBrightness);
 
   // draw led data for the second strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Green);
-  FastLED[2].showLeds(gBrightness);
+  FastLED[2].showLedsInternal(gBrightness);
 
   // draw led data for the third strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Blue);
-  FastLED[3].showLeds(gBrightness);
+  FastLED[3].showLedsInternal(gBrightness);
 
   // draw led data for the first strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::White);
-  FastLED[4].showLeds(gBrightness);
+  FastLED[4].showLedsInternal(gBrightness);
 }
 ```
