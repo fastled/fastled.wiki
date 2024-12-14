@@ -191,10 +191,6 @@ void loop() {
 Managing your own output
 ------------------------
 
-*update*
-
-*We had to break showLeds() on the individual controller strips to make FastLED highly parallel for driving WS2812. The 3.8.X contract was that CLEDController::showLeds() would complete the entire draw before it returned. This made sense when everything was software bit banged out via the CPU circa 2012. That's all changed now starting with 3.9.X series (the alpha version of the 4.0 release). The higher-end chips like the teensy and the esp32 feature multiple independent hardware bit-banging controllers backed by a DMA controller and internal high-priority interrupts. What this means is that `CLEDController::showLeds()` has been transformed from "draw this right now" to "acquire the resources and prepare for an impending async draw command" in >= 3.9.X. we recommend that you use `FastLED.show()` instead of these internal functions. For example, on ESP32 the draw command won't actually be issued until endDraw() is invoked and will wait to complete once beginDraw() is called on the next frame. This pattern will be replicated eventually for the Teensy 4.X series as well. If you use these internal functions there is no guarantee that your code will work if you switch platforms.*
-
 FastLED helpfully writes to all the leds strips every time you call show.  However, sometimes, that might not be what you want.  For example, you may want to split leds over multiple lines to conserve memory.  In this case, you can sidestep fastled's automatic display (at the cost of easy global brightness management).  Here's a quick example:
 
 ```C++
@@ -217,15 +213,15 @@ void setup() {
 void loop() { 
   // draw led data for the first strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Red);
-  controllers[0]->showLedsInternal(gBrightness);
+  controllers[0]->showLeds(gBrightness);
 
   // draw led data for the second strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Green);
-  controllers[1]->showLedsInternal(gBrightness);
+  controllers[1]->showLeds(gBrightness);
 
   // draw led data for the third strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Blue);
-  controllers[2]->showLedsInternal(gBrightness);
+  controllers[2]->showLeds(gBrightness);
 
   // draw led data for the first strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::White);
@@ -256,18 +252,18 @@ void setup() {
 void loop() { 
   // draw led data for the first strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Red);
-  FastLED[0].showLedsInternal(gBrightness);
+  FastLED[0].showLeds(gBrightness);
 
   // draw led data for the second strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Green);
-  FastLED[2].showLedsInternal(gBrightness);
+  FastLED[2].showLeds(gBrightness);
 
   // draw led data for the third strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::Blue);
-  FastLED[3].showLedsInternal(gBrightness);
+  FastLED[3].showLeds(gBrightness);
 
   // draw led data for the first strand into leds
   fill_solid(leds, NUM_LEDS, CRGB::White);
-  FastLED[4].showLedsInternal(gBrightness);
+  FastLED[4].showLeds(gBrightness);
 }
 ```
