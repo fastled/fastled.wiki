@@ -11,7 +11,7 @@ A quick overview of the FastLED library and the various pieces/components of it
 * [Math Library](#math)
 * [Low Level Access](#lowlevel)
 
-In addition, there is API level documentation at http://fastled.io/docs/3.1/modules.html
+In addition, there is API level documentation at http://fastled.io/docs
 <h2 id="chipsets">Supported Chipsets</h2>
 
 The core of the library is providing support to a number of LED chipsets that are out there.  
