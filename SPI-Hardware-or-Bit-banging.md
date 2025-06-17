@@ -1,3 +1,5 @@
+*This guide does not apply to the WS2812-SPI driver, which is special. This guide is about SPI-based LEDs which expect a data and a clock line.*
+
 One of the things that the FastLED library will do is attempt to use the fastest mechanism available to it for driving your leds.  This stands out most clearly with SPI based chipsets (e.g. the APA102, WS2801, etc...).
 
 When you set up your leds, you give FastLED a data pin and a clock pin:
