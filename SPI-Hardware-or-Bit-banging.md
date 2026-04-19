@@ -41,6 +41,13 @@ Of course, the question then becomes, "What pins are hardware SPI pins?"  Here's
   * Hardware SPI - data 7, clock 14
 * Arduino Due:
   * Hardware SPI - data 75, clock 76
+* **ESP32 (all variants — ESP32-dev, S2, S3, C3, C6, H2, P4):**
+  * **Any GPIO pair works.** ESP32 routes SPI peripherals through the GPIO matrix, so there is no fixed MOSI/SCK pin — whatever pair you pass to `addLeds<APA102, DATA_PIN, CLOCK_PIN>(...)` will be bound to a hardware SPI host at runtime. No `#define` is required to opt in; FastLED will use hardware SPI automatically.
+  * If an older build emits the legacy pragma `"No hardware SPI pins defined. All SPI access will default to bitbanged output"`, that message is obsolete — it comes from a platform that predates the ESP32 SPI rework and does not apply to current ESP32 builds. Verified by the FastLED ESP32 SPI driver (`src/platforms/esp/32/drivers/spi/`), which binds any pin pair via `SPI2_HOST` / `SPI3_HOST` and the GPIO matrix.
+  * Multi-lane parallel SPI is also available on ESP32 (1-, 2-, 4-, 8-lane) for APA102 / SK9822 / LPD8806 style chipsets — see the ESP32 [ARCHITECTURE.md](https://github.com/FastLED/FastLED/blob/master/src/platforms/esp/32/ARCHITECTURE.md#hardware-spi-vs-clockless-spi) for the driver map.
+  * The clock-rate argument works normally: `FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, RGB, DATA_RATE_MHZ(10)>(leds, NUM_LEDS);`.
+* ESP8266:
+  * Hardware SPI (`HSPI`) — data GPIO13 (MOSI), clock GPIO14 (SCLK). These are fixed; bit-banging is used on any other pair.
 
 ### What about USART SPI? ###
 
