@@ -25,12 +25,36 @@ You don't need to wrap or modulo the input — unsigned overflow already gives y
 
 These functions take an 8-bit unsigned integer (uint8_t) and return an 8-bit unsigned integer (uint8_t). Input range is `0..255` (one full cycle); output range is `0..255`.
 
-* triwave8( i) -- a **triangle wave**, a symmetric zig-zag that rises from 0 to 255 over the first half of the cycle and falls from 255 to 0 over the second half. (Note: this is *not* a sawtooth — a sawtooth would snap discontinuously back to 0 at the top. An earlier version of this page claimed they were the same; they aren't.)
+* triwave8( i) -- a **triangle wave**, a symmetric zig-zag that rises from 0 to 255 over the first half of the cycle and falls from 255 to 0 over the second half. (Note: this is *not* a sawtooth — a sawtooth would snap discontinuously back to 0 at the top. An earlier version of this page claimed they were the same; they aren't. See "Where's the sawtooth?" below.)
 * quadwave8( i) -- quadratic in/out easing applied to a triangle wave.  This makes nearly a sine wave, but takes only about 2/3rds of the CPU cycles of FastLED's fastest sine function.
 * cubicwave8( i) -- cubic in/out easing applied to a triangle wave.  This makes a 'higher contrast' wave than the quad or sine wave.  10-20% faster than FastLED's fastest sine function.
 * sin8( i) -- FastLED's 8-bit sine wave approximation.  It's more than 99% accurate across all thetas, and never off by more than a couple of percent.  On AVR processors, it's more roughly 20X as fast as Arduino's built-in floating point sin(x) routine.  cos8(i) is also provided. Output is biased so that `sin8(0) == 128` (mid-range) — these are *unsigned* samples of a sine centred at 128.
 
 Depending on context and usage, these wave functions can be as fast or faster than using a lookup table to generate wave values.  (And they use a heck of a lot less RAM.)  Since particular projects and code differ greatly, you are encouraged to try different options and select the one that works best in your particular circumstances.
+
+### Where's the sawtooth?
+
+There is no `sawtooth8(i)`, and that's deliberate: over the index domain these functions use, a rising sawtooth *is* the input.
+
+```cpp
+uint8_t rising  = i;          // 0..255, snaps back to 0 — a sawtooth
+uint8_t falling = 255 - i;    // 255..0, snaps back to 255 — the reverse ramp
+```
+
+Every other function on this page is a *reshaping* of that ramp — `triwave8()` folds it in half, `quadwave8()` and `cubicwave8()` ease it, `sin8()` rounds it. The ramp itself needs no function.
+
+What you usually want in practice is the **time-driven** sawtooth, which does have a name:
+
+* `beat8( BPM)` -- an 8-bit sawtooth that cycles at the given tempo
+* `beat16( BPM)` / `beat88( BPM88)` -- the same at 16-bit precision
+
+`beat8()` is the generator the whole `beatsin*()` family is built on, so feeding it into the functions above gives you any of these waveforms running on a clock:
+
+```cpp
+uint8_t saw  = beat8(60);              // sawtooth at 60 BPM
+uint8_t tri  = triwave8(beat8(60));    // triangle at 60 BPM
+uint8_t ease = quadwave8(beat8(60));   // eased, ~sine, at 60 BPM
+```
 
 ### 16-bit wave functions
 
