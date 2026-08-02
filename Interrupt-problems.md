@@ -129,3 +129,6 @@ void loop() {
 _What's known to work and where?_
 
 * Someone filed #435 to let us know that IRRemote works on the teensy 3.x.
+---
+
+**See also:** [[Performance and Timing]] — how to compute `show()` duration and interrupt-blackout length for your chipset and pixel count *before* you build, including the per-chipset µs/pixel table and per-platform `FASTLED_ALLOW_INTERRUPTS` defaults.

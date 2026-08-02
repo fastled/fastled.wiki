@@ -11,6 +11,7 @@
   * [[Power Notes]]
   * [[FastLED Wave Functions]]
   * [[Platform limitations]]
+  * [[Performance and Timing]]
   * [[Interrupt problems]]
   * [[ESP8266 notes]]
   * [[Parallel-Output]]
